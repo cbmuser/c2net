@@ -21,7 +21,7 @@ A Wifi C2N-Datasette for Commodore Computers
                            GP6  9 )o      R      o( 32 GP27
                            GP7 10 )o      Y      o( 31 GP26
  levelshifter---SENSE ---> GP8 11 )o             o( 30 RUN   <--- SW-RESET -- GND (RESET)
- levelshifter---MOTOR ---> GP9 12 )o   PI PICO   o( 29 GP22          
+ levelshifter---MOTOR *)-> GP9 12 )o   PI PICO   o( 29 GP22          
                            GND 13 )o             o( 28 GND           
                (READ)x--> GP10 14 )o   -------   o( 27 GP21         
                           GP11 15 )o  |       |  o( 26 GP20
@@ -35,7 +35,7 @@ A Wifi C2N-Datasette for Commodore Computers
      Motor
      -----
           
-     CBM Tapeport Pin C3     ---[ 1K resistor ]---|
+  *) CBM Tapeport Pin C3     ---[ 1K resistor ]---|
                                                    >------- Levelshifter 
                          GND ---[ 1K resistor ]---| 
 

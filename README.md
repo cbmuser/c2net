@@ -21,7 +21,7 @@ level shifter---WRITE <--- GP2  4 )o      S      o( 37 3_3V_EN
                            GP6  9 )o      R      o( 32 GP27
                            GP7 10 )o      Y      o( 31 GP26
 level shifter---SENSE ---> GP8 11 )o             o( 30 RUN   <--- SW-RESET -- GND (RESET)
-level shifter---MOTOR *)-> GP9 12 )o   PI PICO   o( 29 GP22          
+*)level shifter-MOTOR ---> GP9 12 )o   PI PICO   o( 29 GP22          
                            GND 13 )o             o( 28 GND           
                (READ)x--> GP10 14 )o   -------   o( 27 GP21         
                           GP11 15 )o  |       |  o( 26 GP20

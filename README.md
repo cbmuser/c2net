@@ -50,7 +50,7 @@ Commodore Cassette Port
      
      A-1  GND    Ground
      B-2  + 5V   5 Volt DC
-     C-3  MOTOR  Motor Control, approx. 
+     C-3  MOTOR  Motor Control
      D-4  READ   Data Input, read data from datasette
      E-5  WRITE  Data Output, write data to datasette
      F-6  SENSE  Detection, if one of the keys PLAY, RECORD, F.FWD or REW is pressed      

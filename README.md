@@ -13,7 +13,7 @@ Raspberry Pi Pico W (RP2040)
                            GP0  1 )o( )|     |( )o( 40 VBUS     <---- 5V=
                            GP1  2 )o      R      o( 39 VSYS
                            GND  3 )o      A      o( 38 GND      ----- GND
-level shifter---write <--- GP2  4 )o      S      o( 37 3_3V_EN          
+level shifter---WRITE <--- GP2  4 )o      S      o( 37 3_3V_EN          
                            GP3  5 )o      P      o( 36 3_3V_OUT ----- 3.3V Out
                  LCD  <--- SDA  6 )o      B      o( 35 ADC_VREF
                  LCD  <--- SCL  7 )o      E      o( 34 GP28

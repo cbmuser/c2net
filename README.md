@@ -5,7 +5,7 @@ A Wifi C2N-Datasette for Commodore Computers
 
 ```
 
- Raspberry Pi Pico W (RP2040)
+Raspberry Pi Pico W (RP2040)
 
 
                                         -----
@@ -38,5 +38,21 @@ level shifter---MOTOR *)-> GP9 12 )o   PI PICO   o( 29 GP22
   *) CBM Tapeport Pin C3     ---[ 1K resistor ]---|
                                                    >------- level shifter ---- GP9
                          GND ---[ 1K resistor ]---| 
+
+
+Commodore Cassette Port
+     
+     
+     1  2   3  4  5  6  
+     -- --  -- -- -- --
+     -- --  -- -- -- --         
+     A  B   C  D  E  F
+     
+     A-1  GND    Ground
+     B-2  + 5V   5 Volt DC
+     C-3  MOTOR  Motor Control, approx. 
+     D-4  READ   Data Input, read data from datasette
+     E-5  WRITE  Data Output, write data to datasette
+     F-6  SENSE  Detection, if one of the keys PLAY, RECORD, F.FWD or REW is pressed      
 
 ```

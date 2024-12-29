@@ -6,10 +6,10 @@
 
 const int writeport = 2;       // use level-shifter
 const int senseport = 8;       // use level-shifter
-const int motorport = 9;       // use level-shifter and voltage devider        
+const int motorport = 9;       // use level-shifter and voltage divider        
 const int readport  = 10;      // not in use, for future development
 const int LED  = 25;
-const bool inverter = false;   // use of an driving inverter like 74LS06 ?
+const bool inverter = false;   
 /*
  CBM 2001N 
 

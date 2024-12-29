@@ -1,5 +1,5 @@
-#ifndef cbm_h
-#define cbm_h
+#ifndef c2n_h
+#define c2n_h
 
 // C2N Setups
 // for Raspberry Pi Pico W

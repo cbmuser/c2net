@@ -1,6 +1,7 @@
 # c2net
 A Wifi C2N-Datasette for Commodore Computers
 
+You can transfer your PRG-files using "curl" to your Commodore Computer by local Wifi. It's a first workstage and in development.  
 
 
 ```

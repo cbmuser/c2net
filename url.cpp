@@ -1,3 +1,8 @@
+/*
+ * 
+ * Source: ESP8266-Arduino-Examples 
+ * 
+ */
 #include <Arduino.h>
 
 unsigned char h2int(char c)

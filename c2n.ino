@@ -320,11 +320,6 @@ if (cardreader == true) {
                                lcd.print(loadfile);
                                 delay(200);
                                 String lastfile = loadfile;
-                               for (uint8_t j = 0; j <= 15; j++) 
-                                  {
-                                    char b = lastfile[j];
-                                    prgbuffer[j+2] = b;
-                                   }
                                  buffer_lastfile (lastfile);
                                 }      
                                }

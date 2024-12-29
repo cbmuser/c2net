@@ -182,13 +182,13 @@ void setup(void) {
      lcd.backlight();
      lcd.print("CONNECT");
       delay(50);
-if (debug) {  
-             Serial.begin(115200);
-               while (!SD.begin(17u)) {
-                      delay(100);
-                     }     
-                      delay(100);
+     delay(10);
+      while (!SD.begin(17u)) 
+             {
+              delay(100);
+             }     
 
+if (debug) { Serial.begin(115200);
              Serial.println("SD Card initialized.");
            }          
  

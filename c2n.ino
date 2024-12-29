@@ -3,7 +3,8 @@
 #include <WebServer.h>
 #include <uri/UriRegex.h>
 #include <SD.h>
-#include "cbm.h"
+#include "c2n.h"
+#include "url.h"
 #include <LCD-I2C.h>
 #include <Wire.h>
 
@@ -33,6 +34,7 @@ File root;
 WebServer server(80);
 File rawFile;
 File dirFile;
+
 
 
 
@@ -97,13 +99,40 @@ void handleCreate() {
      server.send(500, "text/plain", "\r\n");
 }
 
+
+//----------------------------------------------------------
+
+void buffer_lastfile (String lastfile) {
+
+ for (uint8_t j = 0; j <= 15; j++) 
+  {
+   char b = lastfile[j];
+   prgbuffer[j+2] = b;
+  }
+   File c2nFile = SD.open(lastfile, "r");
+   int i = 18;
+   while (c2nFile.available()) 
+    {
+     byte inputchar = c2nFile.read();
+     prgbuffer[i] = inputchar;
+     i++;
+    }
+    uint8_t xlow = i & 0xff;
+    uint8_t xhigh = (i >> 8);
+    prgbuffer[0] =  xhigh;
+    prgbuffer[1] =  xlow;
+    c2nFile.close();    
+  }      
+
 //----------------------------------------------------------
 //  The Upload, may be expanded
 //----------------------------------------------------------
 void handleCreateProcess() {
    
-  String path = "/" + server.pathArg(0);
-  String lastfile = server.pathArg(0);
+  String path = urldecode(("/" + server.pathArg(0)));  
+  String lastfile = urldecode(server.pathArg(0));
+  
+ 
   HTTPRaw& raw = server.raw();
   if (raw.status == RAW_START) {
   
@@ -133,22 +162,7 @@ void handleCreateProcess() {
     dirstr ="";
     printDirectory(root, 0);
 
-     for (uint8_t j = 0; j <= 15; j++) {
-      char b = lastfile[j];
-      prgbuffer[j+2] = b;
-       }
-     File c2nFile = SD.open(lastfile, "r");
-   int i = 18;
-    while (c2nFile.available()) {
-     byte inputchar = c2nFile.read();
-     prgbuffer[i] = inputchar;
-     i++;
-    }
-    uint8_t xlow = i & 0xff;
-    uint8_t xhigh = (i >> 8);
-     prgbuffer[0] =  xhigh;
-     prgbuffer[1] =  xlow;
-     c2nFile.close();  
+     buffer_lastfile (lastfile);
       lcd.setCursor(0, 1);
       lcd.print ("                ");
      delay(200);
@@ -247,7 +261,8 @@ String toggle_dir() {
 //------------------------------------------------------------
 
 void loop(void) {
-  
+
+
 if (cardreader == false) {  
  
                            server.handleClient();
@@ -297,7 +312,7 @@ if (cardreader == true) {
                                   break;
                                  }
 
- String loadfile = entry.name(); 
+                               String loadfile = entry.name(); 
                                if (lastfile != loadfile) {
                                lcd.setCursor(0, 1);
                                lcd.print("                ");
@@ -309,20 +324,7 @@ if (cardreader == true) {
                                     char b = lastfile[j];
                                     prgbuffer[j+2] = b;
                                    }
-  
-                                 File c2nFile = SD.open(lastfile, "r");
-                                 int i = 18;
-                                 while (c2nFile.available()) 
-                                      {
-                                        byte inputchar = c2nFile.read();
-                                        prgbuffer[i] = inputchar;
-                                        i++;
-                                      }
-                                 uint8_t xlow = i & 0xff;
-                                 uint8_t xhigh = (i >> 8);
-                                 prgbuffer[0] =  xhigh;
-                                 prgbuffer[1] =  xlow;
-                                 c2nFile.close();    
+                                 buffer_lastfile (lastfile);
                                 }      
                                }
                               }

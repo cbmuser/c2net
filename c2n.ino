@@ -40,7 +40,7 @@ String indexPage()
 {
   
   String buf  ="";
-  File indexFile = SD.open("DIR",FILE_READ);
+  File indexFile = SD.open("sys/DIR",FILE_READ);
    if (indexFile)
      { while (indexFile.available()) {
       buf += char (indexFile.read()); }
@@ -55,10 +55,10 @@ String indexPage()
 void printDirectory(File dir, int numTabs) {
   while (true) {
 
-    if (SD.exists("DIR")) {
-      SD.remove("DIR");
+    if (SD.exists("sys/DIR")) {
+      SD.remove("sys/DIR");
     }
-    dirFile = SD.open("DIR","w");
+    dirFile = SD.open("sys/DIR","w");
     File entry =  dir.openNextFile();
     if (! entry) {
       // no more files
@@ -181,7 +181,6 @@ void setup(void) {
      lcd.display();
      lcd.backlight();
      lcd.print("CONNECT");
-      delay(50);
      delay(10);
       while (!SD.begin(17u)) 
              {
@@ -237,6 +236,8 @@ if (debug) {  Serial.println("done!"); }
 String toggle_dir() {
   File dir = root;
   File entry =  dir.openNextFile(); 
+  if (entry.isDirectory()) { entry =  dir.openNextFile(); }
+  
   String loadfile = entry.name();
   lcd.setCursor(0, 1);
   lcd.print(loadfile);
@@ -250,7 +251,7 @@ void loop(void) {
 if (cardreader == false) {  
  
                            server.handleClient();
-                           delay(2);
+                           delay(100);
                             digitalWrite(senseport, LOW);
                            delay(100);
                             digitalWrite(senseport, HIGH);
@@ -297,7 +298,7 @@ if (cardreader == true) {
                                  }
 
  String loadfile = entry.name(); 
-    if (lastfile != loadfile) {
+                               if (lastfile != loadfile) {
                                lcd.setCursor(0, 1);
                                lcd.print("                ");
                                lcd.setCursor(0, 1);

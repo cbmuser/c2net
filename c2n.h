@@ -68,8 +68,7 @@ class c2n
         int payload = 192;
 
         char stream[192];
-       
-        bool datasette;  
+
         bool isirq;
         bool inverter;  
 

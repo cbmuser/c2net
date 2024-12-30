@@ -42,7 +42,7 @@ class c2n
          
         
         void c2ninit();
-        void delay_Hz(uint32_t hz);
+        void delay_Hz(uint16_t hz);
         bool no_irq();
         bool irq();
         void write_pulse (float pulse );

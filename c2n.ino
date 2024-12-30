@@ -26,7 +26,7 @@ String dirstr ="";
 String lastfile;
 String filedisplay ="";
 
-bool debug = true;
+bool debug = false;
 bool cardreader = false;
 bool c2n_write = false;
 

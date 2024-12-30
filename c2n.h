@@ -9,7 +9,7 @@ C64 PAL (B3-Board)
 
 S = 376 µs or  2.632kHz
 M = 528 µs or  1.894kHz
-L = 352 µs or  1.404kHz
+L = 712 µs or  1.404kHz
 
 */
 // Commodore 64 NTSC Pulses work fine for all.

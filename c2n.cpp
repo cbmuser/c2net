@@ -295,7 +295,7 @@ void c2n::set_sense (uint8_t value) {
 
 }
 
-bool c2n::motor(){
+uint8_t c2n::motor(){
 
    uint8_t is_motor = digitalRead(motorport); 
    

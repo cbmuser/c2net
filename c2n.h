@@ -56,7 +56,7 @@ class c2n
         void loader (char* buffer);
         void toggle_sense(uint8_t _delay);
         void set_sense(uint8_t value);  
-        bool motor();
+     uint8_t motor();
     
     
     protected: 

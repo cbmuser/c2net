@@ -12,6 +12,7 @@
 #define maximum 65535
 char prgbuffer[maximum];
 
+c2n c2n(2,8,9,10,false);
 
 const int net_tape   = 14;
 const int files_down = 15;
@@ -20,11 +21,17 @@ const int files_down = 15;
 const char *ssid = "your SSID";
 const char *password = "your password";
 
+
 String dirstr ="";
 String lastfile;
 String filedisplay ="";
-bool debug = false;
+
+bool debug = true;
 bool cardreader = false;
+bool c2n_write = false;
+
+
+
 uint8_t count = 0;
 
 LCD_I2C lcd(0x3f, 16, 2);
@@ -185,12 +192,16 @@ void handleNotFound() {
 }
 
 //------------------------------------------------------------
-  
+//  Setup 
+//------------------------------------------------------------
+
 void setup(void) {
-     setup_ports();
-      pinMode (net_tape, INPUT_PULLUP);
-      pinMode (files_down, INPUT_PULLUP);
-    Wire.begin();
+
+     c2n.c2ninit();
+
+     pinMode (net_tape, INPUT_PULLUP);
+     pinMode (files_down, INPUT_PULLUP);
+     Wire.begin();
      lcd.begin(&Wire);
      lcd.display();
      lcd.backlight();
@@ -242,7 +253,10 @@ if (debug) { Serial.println("HTTP server started"); }
   lcd.setCursor(0, 0);
 if (debug) {  Serial.println("done!"); }
   lcd.print("C2Net active !");
-  digitalWrite(senseport, HIGH);
+  
+
+  c2n.set_sense(HIGH);  
+  
 }
 
 //------------------------------------------------------------
@@ -266,13 +280,9 @@ void loop(void) {
 if (cardreader == false) {  
  
                            server.handleClient();
-                           delay(100);
-                            digitalWrite(senseport, LOW);
-                           delay(100);
-                            digitalWrite(senseport, HIGH);
-                           delay(100);
-  
-                            if(digitalRead(motorport)== HIGH){ loader(prgbuffer); }   
+                           delay(2);                    
+                           c2n.toggle_sense(100);  
+                            if(c2n.motor()){ c2n.loader(prgbuffer); }   
 
                             if (filedisplay != lastfile) 
                               { lcd.setCursor(0, 1); 

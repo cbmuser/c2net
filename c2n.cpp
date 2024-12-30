@@ -22,7 +22,7 @@ void c2n::c2ninit()
     digitalWrite(LED_BUILTIN, LOW);
   }
 
-void c2n::delay_Hz(uint32_t hz)
+void c2n::delay_Hz(uint16_t hz)
 {
      uint64_t ticks;
      uint32_t base = 500000;      

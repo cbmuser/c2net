@@ -3,6 +3,32 @@ A Wifi C2N-Datasette for Commodore Computers
 
 You can transfer your PRG-files using "curl" to your Commodore Computer by local Wifi. It's a first workstage and in development.  
 
+## Latest Updates
+
+21.April.2025: 
+
++ NTP-time from ntp.org and reconfigurable UTC Summer- and Wintertime for Central-Europe (UTC+1 or UTC+2).
++ Wifi-Account writeable by file in bootload
++ E²Prom
++ DS1307 RTC
+
+  For setup your Wifi create a file named secret.c2n in a folder /sys/ on your SD-Card. Write in the first line your SSID and Password seperated by a comma.
+  It must be very exact, e.g. myssid,mypassword and nothing else, no space or enter at the end of the line. 
+  The next boot will pick up the account-file, store the data in the E²prom and delete the used file.
+
+
+  ## Trouble-Shooting
+
+  Boot goes stuck : Every boot a SD-Card must be in the slot, WLAN reachable and the UDP-Port for NTP open.
+
+  ## ToDo
+
+  Save
+  
+  Faster Load
+
+  Timestamp for SD-Files
+
 
 ```
 

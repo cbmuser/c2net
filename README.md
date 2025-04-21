@@ -15,9 +15,9 @@ Raspberry Pi Pico W (RP2040)
                            GP1  2 )o      R      o( 39 VSYS
                            GND  3 )o      A      o( 38 GND      ----- GND
 level shifter---WRITE <--- GP2  4 )o      S      o( 37 3_3V_EN          
-                           GP3  5 )o      P      o( 36 3_3V_OUT ----- 3.3V Out
-                 LCD  <--- SDA  6 )o      B      o( 35 ADC_VREF
-                 LCD  <--- SCL  7 )o      E      o( 34 GP28
+ (JUMPER)    GND ---/ ---- GP3  5 )o      P      o( 36 3_3V_OUT ----- 3.3V Out
+      E²prom/RTC/LCD  <--- SDA  6 )o      B      o( 35 ADC_VREF
+      E²prom/RTC/LCD  <--- SCL  7 )o      E      o( 34 GP28
                            GND  8 )o      R      o( 33 GND    
                            GP6  9 )o      R      o( 32 GP27
                            GP7 10 )o      Y      o( 31 GP26

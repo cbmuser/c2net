@@ -3,6 +3,10 @@ A Wifi C2N-Datasette for Commodore Computers
 
 You can transfer your PRG-files using "curl" to your Commodore Computer by local Wifi. It's a first workstage and in development.  
 
+curl -T file.prg 192.2.168.100 will send the file to the adapter and will be saved on SD-Card.
+
+curl 192.2.168.100 shows the directory of the SD-Card.
+
 ## Latest Updates
 
 21.April.2025: 
@@ -13,7 +17,7 @@ You can transfer your PRG-files using "curl" to your Commodore Computer by local
 + DS1307 RTC
 
   For setup your Wifi create a file named secret.c2n in a folder /sys/ on your SD-Card. Write in the first line your SSID and Password seperated by a comma.
-  It must be very exact, e.g. myssid,mypassword and nothing else, no space or enter at the end of the line. 
+  It must be very exact, for example myssid,mypassword and nothing else, no space or enter at the end of the line. 
   The next boot will pick up the account-file, store the data in the E²prom and delete the used file.
 
 

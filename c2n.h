@@ -61,7 +61,7 @@ class c2n
     public: 
 
         c2n(const uint8_t wp, const uint8_t sp, const uint8_t mp, const uint8_t rp, bool iv)
-         : writeport{wp}, senseport{sp}, readport{rp}, motorport{mp}, inverter{iv} {}
+         : writeport{wp}, senseport{sp}, motorport{mp}, readport{rp}, inverter{iv} {}
          
         
         void c2ninit();
